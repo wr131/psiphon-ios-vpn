@@ -20,6 +20,10 @@ scripts:
         --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
         --scheme "$XCODE_SCHEME"
 artifacts:
+  - Shared/psiphon_config.stub
+  - Shared/embedded_server_entries.stub
+  - Psiphon/Bourbon-Oblique.otf
+  - pod install
   - build/ios/ipa/*.ipa
   - /tmp/xcodebuild_logs/*.log
   - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
