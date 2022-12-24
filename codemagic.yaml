@@ -1,0 +1,26 @@
+ios-native:
+  environment:
+    vars:
+      BUNDLE_ID: "io.psiphon.psiphon.iosnative"
+      #XCODE_WORKSPACE: "CodemagicSample.xcworkspace" # <-- Name of your Xcode workspace
+      #XCODE_SCHEME: "CodemagicSample" # <-- Name of your Xcode scheme
+      flutter: stable   # Define the channel name or version (e.g. v1.13.4)
+      xcode: latest     # Define latest, edge or version (e.g. 11.2)
+      cocoapods: 1.9.1  # Define default or version
+      node: 12.14.0     # Define default, latest, current, lts, carbon (or another stream), nightly or version
+      npm: 6.13.7       # Define default, latest, next, lts or version
+      ndk: r21d         # Define default or revision (e.g. r19c)
+      java: 1.8         # Define default, or platform version (e.g. 11)
+      ruby: 2.7.2       # Define default or version
+scripts:
+  # ...
+  - name: Psiphon
+    script: | 
+      xcode-project build-ipa \
+        --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+        --scheme "$XCODE_SCHEME"
+artifacts:
+  - build/ios/ipa/*.ipa
+  - /tmp/xcodebuild_logs/*.log
+  - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+  - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
