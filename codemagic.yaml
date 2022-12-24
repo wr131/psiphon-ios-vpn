@@ -17,7 +17,7 @@ scripts:
   - name: Psiphon
     script: | 
       xcode-project build-ipa \
-        --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+        --project "MyXcodeProject.xcodeproj" \
         --scheme "$XCODE_SCHEME"
 artifacts:
   - Shared/psiphon_config.stub
