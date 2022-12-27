@@ -70,20 +70,20 @@ build () {
     echo "BUILD DONE"
 }
 
-upload_ipa () {
-    echo "Validating exported ipa..."
-    if ! xcrun altool --validate-app -t ios -f "${BUILD_DIR}/Psiphon.ipa" -u "${ITUNES_CONNECT_USERNAME}" -p "${ITUNES_CONNECT_PASSWORD}";
-    then
-        echo "Psiphon.ipa failed validation, aborting..."
+#upload_ipa () {
+    #echo "Validating exported ipa..."
+    #if ! xcrun altool --validate-app -t ios -f "${BUILD_DIR}/Psiphon.ipa" -u "${ITUNES_CONNECT_USERNAME}" -p "${ITUNES_CONNECT_PASSWORD}";
+    #then
+    #    echo "Psiphon.ipa failed validation, aborting..."
         exit 1
-    fi
+    #fi
 
-    echo "Uploading validated ipa to TestFlight..."
-    if ! xcrun altool --upload-app -t ios -f "${BUILD_DIR}/Psiphon.ipa" -u "${ITUNES_CONNECT_USERNAME}" -p "${ITUNES_CONNECT_PASSWORD}";
-    then
-        echo "Failed to upload Psiphon.ipa, aborting..."
-        exit 1
-    fi
+    #echo "Uploading validated ipa to TestFlight..."
+    #if ! xcrun altool --upload-app -t ios -f "${BUILD_DIR}/Psiphon.ipa" -u "${ITUNES_CONNECT_USERNAME}" -p "${ITUNES_CONNECT_PASSWORD}";
+    #then
+    #    echo "Failed to upload Psiphon.ipa, aborting..."
+    #    exit 1
+    #fi
 }
 
 # If $1 is unset or null, prints usage.
